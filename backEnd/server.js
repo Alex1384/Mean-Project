@@ -3,11 +3,13 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import Issue from './models/Issue';
+
+
 const app = express();
 const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
-mongoose.connect('mongodb://[server]/issues');
+mongoose.connect('mongodb://localhost:27017/issues');
 const connection = mongoose.connection;
 connection.once('open', () => {
     console.log('MongoDB database connection established successfully!');
